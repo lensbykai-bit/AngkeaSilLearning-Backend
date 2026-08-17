@@ -1,0 +1,19 @@
+{
+  "name": "angkea-sil-learning-payway-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ABA PayWay QR backend for Angkea Sil Learning",
+  "main": "server.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check payway.js && node --check products.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2"
+  }
+}
