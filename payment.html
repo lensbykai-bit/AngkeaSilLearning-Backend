@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="km">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fffaf2">
+  <title>ទូទាត់ — អង្គារសិល៍ ឡឺនីង</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="payment.css">
+</head>
+
+<body class="lang-km">
+  <main class="payment-page">
+    <div class="payment-shell">
+      <section class="payment-brand">
+        <a class="back-link" href="index.html">← ត្រឡប់ទៅមេរៀន</a>
+
+        <div class="brand-row">
+          <img src="assets/logo.svg" alt="អង្គារសិល៍ ឡឺនីង">
+          <div>
+            <strong>អង្គារសិល៍ ឡឺនីង</strong>
+            <small>ការទូទាត់តាម ABA PayWay</small>
+          </div>
+        </div>
+
+        <h1>ស្កេនកូដដើម្បីទូទាត់</h1>
+        <p>កូដខាងក្រោមត្រូវបានបង្កើតដោយស្វ័យប្រវត្តិសម្រាប់វគ្គដែលអ្នកបានជ្រើស។</p>
+      </section>
+
+      <section class="payment-card">
+        <aside class="summary">
+          <h2>សេចក្តីសង្ខេបការបញ្ជាទិញ</h2>
+
+          <div class="summary-line">
+            <span>វគ្គសិក្សា</span>
+            <strong id="courseName">កំពុងផ្ទុក...</strong>
+          </div>
+
+          <div class="summary-line">
+            <span>តម្លៃ</span>
+            <strong id="coursePrice">—</strong>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="summary-line total">
+            <span>សរុប</span>
+            <strong id="totalPrice">—</strong>
+          </div>
+
+          <div class="summary-help">
+            <span>✓ តម្លៃត្រូវបានកំណត់នៅ Backend</span>
+            <span>✓ កូដថ្មីសម្រាប់ការទូទាត់ម្តងៗ</span>
+            <span>✓ ប្រព័ន្ធពិនិត្យស្ថានភាពដោយស្វ័យប្រវត្តិ</span>
+          </div>
+        </aside>
+
+        <section class="qr-payment">
+          <div class="qr-heading">
+            <span class="qr-badge">១</span>
+            <div>
+              <h2>ABA KHQR</h2>
+              <p id="paymentStatus">កំពុងបង្កើតកូដទូទាត់...</p>
+            </div>
+          </div>
+
+          <div class="qr-wrap">
+            <div class="loading-ring" id="qrLoading" aria-label="កំពុងផ្ទុក"></div>
+
+            <img
+              id="paymentQr"
+              class="payment-qr"
+              alt="កូដ ABA KHQR"
+              hidden
+            >
+
+            <div class="qr-error" id="qrError" hidden>
+              <strong>មិនអាចបង្កើតកូដទូទាត់បាន</strong>
+              <p id="qrErrorText">សូមព្យាយាមម្តងទៀត។</p>
+              <button id="retryQr" type="button">ព្យាយាមម្តងទៀត</button>
+            </div>
+          </div>
+
+          <div class="amount-box">
+            <span>ចំនួនត្រូវទូទាត់</span>
+            <strong id="payAmount">—</strong>
+          </div>
+
+          <div class="payment-meta">
+            <div>
+              <span>លេខប្រតិបត្តិការ</span>
+              <strong id="tranId">—</strong>
+            </div>
+            <div>
+              <span>កូដមានសុពលភាព</span>
+              <strong id="countdown">០៦:០០</strong>
+            </div>
+          </div>
+
+          <div class="qr-instructions">
+            <div><b>១</b><span>បើកកម្មវិធីធនាគារដែលគាំទ្រ KHQR</span></div>
+            <div><b>២</b><span>ស្កេនកូដខាងលើ</span></div>
+            <div><b>៣</b><span>ពិនិត្យឈ្មោះអ្នកទទួល និងចំនួនទឹកប្រាក់</span></div>
+            <div><b>៤</b><span>បញ្ជាក់ការទូទាត់ ហើយរង់ចាំប្រព័ន្ធផ្ទៀងផ្ទាត់</span></div>
+          </div>
+
+          <div class="payment-action-row">
+            <button class="confirm-payment" id="checkPayment" type="button" disabled>
+              ពិនិត្យការទូទាត់
+            </button>
+            <button class="regenerate-payment" id="regenerateQr" type="button" hidden>
+              បង្កើតកូដថ្មី
+            </button>
+          </div>
+
+          <p class="notice" id="notice">
+            ប្រព័ន្ធនឹងពិនិត្យការទូទាត់ដោយស្វ័យប្រវត្តិ។ កុំបិទទំព័រនេះរហូតដល់មានសារបញ្ជាក់។
+          </p>
+        </section>
+      </section>
+
+      <div class="payment-tools">
+        <button class="theme-switch" id="themeToggle" type="button" aria-label="ប្តូរពន្លឺ និងងងឹត">
+          <span>☀</span><span>☾</span><i></i>
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <div class="success-modal" id="successModal" aria-hidden="true">
+    <div class="success-card">
+      <div class="success-icon">✓</div>
+      <h2>ការទូទាត់បានជោគជ័យ</h2>
+      <p id="successText">ប្រព័ន្ធបានផ្ទៀងផ្ទាត់ការទូទាត់របស់អ្នករួចរាល់។</p>
+      <a class="success-home" href="index.html">ត្រឡប់ទៅទំព័រដើម</a>
+    </div>
+  </div>
+
+  <script src="payway-config.js"></script>
+  <script src="payment.js"></script>
+</body>
+</html>
