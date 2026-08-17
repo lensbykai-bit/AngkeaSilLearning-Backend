@@ -117,6 +117,16 @@ function validCallbackUrl(url) {
   return /^https:\/\/[A-Za-z0-9.-]+(?::\d+)?(?:\/|$)/.test(url);
 }
 
+app.get("/", (req, res) => {
+  res.json({
+    ok: true,
+    service: "Angkea Sil Learning PayWay",
+    message: "Backend is live",
+    environment: BASE_URL.includes("sandbox") ? "sandbox" : "production",
+    configured: configured()
+  });
+});
+
 app.get("/health", (req, res) => {
   res.json({
     ok: true,
